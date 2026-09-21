@@ -1,5 +1,5 @@
 import {useState,useEffect,useRef} from 'react'
-import {ArrowRight,ArrowUpRight,BarChart3,BriefcaseBusiness,CalendarDays,Check,ChevronLeft,ChevronRight,Edit3,Filter,Gavel,LogOut,Menu,MoreHorizontal,Plus,Search,ShieldCheck,Trash2,TrendingUp,Users,Video} from 'lucide-react'
+import {ArrowRight,ArrowUpRight,BarChart3,BriefcaseBusiness,CalendarDays,Check,ChevronLeft,ChevronRight,Circle,Edit3,Filter,Gavel,LogOut,Menu,Mic,MicOff,MonitorUp,MoreHorizontal,PhoneOff,Plus,Search,ShieldCheck,Square,Trash2,TrendingUp,Users,Video,VideoOff} from 'lucide-react'
 import seed from './db.json'
 const load=()=>{try{return JSON.parse(localStorage.getItem('courtdb'))||seed}catch{return seed}}
 const nid=a=>Math.max(0,...a.map(x=>x.id))+1
@@ -147,7 +147,13 @@ function Room({m,db,upd,close}){
  {side==='chat'&&<><div className="msgs">{chat.length?chat.map((c,i)=><div className="msg" key={i}><b>{c.from}</b><small>{new Date(c.at).toLocaleTimeString()}</small><div>{c.text}</div></div>):'No messages yet.'}</div><div className="in"><input value={txt} placeholder="Type a message" onChange={e=>setTxt(e.target.value)} onKeyDown={e=>e.key==='Enter'&&send()}/><button className="btn" onClick={send}>Send</button></div></>}
  {side==='info'&&<div className="det"><b>Case:</b> {m.caseName}<br/><b>Branch:</b> {m.branch}<br/><b>Team:</b> {m.team}<br/><b>Started by:</b> {m.host} (admin@pjsofttech.com)<br/><b>Started at:</b> {fmt(m.start)}<br/><b>Duration:</b> {mm}<br/><b>Meeting code:</b> {m.code}<br/><b>Recording:</b> {rec?'In progress':rc?'Saved to downloads':'Off'}<br/><b>Messages:</b> {chat.length}</div>}
  {side==='ppl'&&<div className="det"><b>Host:</b> Admin<br/>{m.participants.map(p=><div key={p.name}>{p.name}<small style={{display:'block',color:'var(--mu)',lineHeight:1.2}}>{p.role} · {p.language} · {p.email}</small></div>)}</div>}</div></div>
- <div className="rc"><button className={'btn'+(mic?'':' on')} onClick={()=>tog('getAudioTracks',mic,setMic)}>{mic?'Mute':'Unmute'}</button><button className={'btn'+(cam?'':' on')} onClick={()=>tog('getVideoTracks',cam,setCam)}>{cam?'Stop video':'Start video'}</button><button className="btn" onClick={share}>Share screen</button><button className={'btn'+(rec?' on':'')} onClick={record}>{rec?'Stop recording':'Record'}</button><button className="btn rd" onClick={leave}>End meeting</button></div></div>
+ <div className="rc">
+  <button className={'meeting-control'+(mic?'':' active')} onClick={()=>tog('getAudioTracks',mic,setMic)} aria-label={mic?'Mute microphone':'Unmute microphone'} title={mic?'Mute microphone':'Unmute microphone'}>{mic?<Mic size={18}/>:<MicOff size={18}/>}</button>
+  <button className={'meeting-control'+(cam?'':' active')} onClick={()=>tog('getVideoTracks',cam,setCam)} aria-label={cam?'Stop video':'Start video'} title={cam?'Stop video':'Start video'}>{cam?<Video size={18}/>:<VideoOff size={18}/>}</button>
+  <button className="meeting-control" onClick={share} aria-label="Share screen" title="Share screen"><MonitorUp size={18}/></button>
+  <button className={'meeting-control'+(rec?' active':'')} onClick={record} aria-label={rec?'Stop recording':'Start recording'} title={rec?'Stop recording':'Start recording'}>{rec?<Square size={16}/>:<Circle size={18}/>}</button>
+  <button className="meeting-control end" onClick={leave} aria-label="End meeting" title="End meeting"><PhoneOff size={18}/></button>
+ </div></div>
 }
 
 const TABS=[['dashboard','Dashboard'],['cases','Case'],['tasks','Task List'],['members','Member'],['leaders','Leader'],['teams','Team'],['meetings','Meetings'],['settings','Setting']]
