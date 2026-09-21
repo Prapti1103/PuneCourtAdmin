@@ -1,0 +1,31 @@
+{
+"project":"Pune Court",
+"admin":{"email":"admin@pjsofttech.com","password":"Admin@123"},
+"branches":[{"id":1,"name":"Criminal"},{"id":2,"name":"Diwani"}],
+"departments":[{"id":1,"name":"Judiciary"},{"id":2,"name":"Prosecution"},{"id":3,"name":"Defense"},{"id":4,"name":"Registry"},{"id":5,"name":"Interpretation"}],
+"languages":[{"id":1,"name":"Marathi"},{"id":2,"name":"Hindi"},{"id":3,"name":"English"}],
+"cases":[
+{"id":1,"name":"State vs. Suresh Patil (CR-2026/118)","branch":"Criminal","department":"Prosecution","team":"State vs Patil Team","status":"In Progress","progress":40,"start":"2026-08-01","end":"2026-12-15","remark":"Third hearing pending"},
+{"id":2,"name":"Jadhav vs. More Land Dispute (CS-2026/54)","branch":"Diwani","department":"Judiciary","team":"Land Dispute Team","status":"Upcoming","progress":10,"start":"2026-10-05","end":"2027-01-20","remark":"Summons issued"},
+{"id":3,"name":"State vs. R. Kale Theft (CR-2026/92)","branch":"Criminal","department":"Judiciary","team":"State vs Patil Team","status":"Completed","progress":100,"start":"2026-05-02","end":"2026-08-30","remark":"Judgment delivered"}],
+"leaders":[
+{"id":1,"name":"Adv. Meera Kulkarni","email":"meera.k@punecourt.in","department":"Prosecution","branch":"Criminal"},
+{"id":2,"name":"Adv. Kavita More","email":"kavita.m@punecourt.in","department":"Judiciary","branch":"Diwani"},
+{"id":3,"name":"Justice A. Deshmukh","email":"deshmukh@punecourt.in","department":"Judiciary","branch":"Criminal"}],
+"teams":[
+{"id":1,"name":"State vs Patil Team","branch":"Criminal","department":"Prosecution","leader":"Adv. Meera Kulkarni"},
+{"id":2,"name":"Land Dispute Team","branch":"Diwani","department":"Judiciary","leader":"Adv. Kavita More"}],
+"members":[
+{"id":1,"name":"Justice A. Deshmukh","email":"deshmukh@punecourt.in","role":"Judge","department":"Judiciary","branch":"Criminal","team":"State vs Patil Team","language":"English"},
+{"id":2,"name":"Adv. Meera Kulkarni","email":"meera.k@punecourt.in","role":"Public Prosecutor","department":"Prosecution","branch":"Criminal","team":"State vs Patil Team","language":"Marathi"},
+{"id":3,"name":"Adv. Rohan Joshi","email":"rohan.j@gmail.com","role":"Defense Lawyer","department":"Defense","branch":"Criminal","team":"State vs Patil Team","language":"English"},
+{"id":4,"name":"Suresh Patil","email":"suresh.p@gmail.com","role":"Accused","department":"Defense","branch":"Criminal","team":"State vs Patil Team","language":"Marathi"},
+{"id":5,"name":"Anita Shinde","email":"anita.s@gmail.com","role":"Witness","department":"Prosecution","branch":"Criminal","team":"State vs Patil Team","language":"Marathi"},
+{"id":6,"name":"Farhan Sheikh","email":"farhan.s@gmail.com","role":"Translator","department":"Interpretation","branch":"Criminal","team":"State vs Patil Team","language":"Hindi"},
+{"id":7,"name":"Adv. Kavita More","email":"kavita.m@punecourt.in","role":"Plaintiff Lawyer","department":"Judiciary","branch":"Diwani","team":"Land Dispute Team","language":"Marathi"},
+{"id":8,"name":"Vikram Jadhav","email":"vikram.j@gmail.com","role":"Defendant","department":"Defense","branch":"Diwani","team":"Land Dispute Team","language":"Marathi"}],
+"tasks":[
+{"id":1,"title":"Prepare charge sheet summary","case":"State vs. Suresh Patil (CR-2026/118)","assignee":"Adv. Meera Kulkarni","due":"2026-09-28","status":"In Progress"},
+{"id":2,"title":"Translate witness statement","case":"State vs. Suresh Patil (CR-2026/118)","assignee":"Farhan Sheikh","due":"2026-09-25","status":"Pending"}],
+"meetings":[]
+}
